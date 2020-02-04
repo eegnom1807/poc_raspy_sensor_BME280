@@ -18,8 +18,10 @@ function pythonDeps() {
 
 # Activate virtual env
 function activateEnv() {
-    echo "*** Activating virual env ... ***"
-    cd /home/heretic/develop/python/poc_raspy_sensor_BME280
+    echo "*** Activating virtual env ... ***"
+    path=`/bin/pwd`
+    #cd /home/heretic/develop/python/poc_raspy_sensor_BME280
+    cd $path
     source env3_temp/bin/activate
     if [ $? -eq 0 ]
     then
@@ -31,12 +33,12 @@ function activateEnv() {
 
 # Create virtual env if not exist
 function createEnv() {
-    echo "*** Creating virual env ... ***"
-    test -d env3_temp
+    echo "*** Creating virtual env ... ***"
+    /usr/bin/test -d env3_temp
     if [ $? -eq 1 ]
     then
         echo "Creating python virtual env ..."
-        virtualenv -p python3 env3_temp
+        /usr/bin/virtualenv -p python3 env3_temp
     else
         echo "Virtual env exist!!"
     fi
@@ -44,13 +46,13 @@ function createEnv() {
 
 # Install virualenv command
 function installVirtualenv() {
-    echo "*** Installing virualenv command ... ***"
-    sudo apt-get install virtualenv
+    echo "*** Installing virtualenv command ... ***"
+    /usr/bin/sudo /usr/bin/apt-get install virtualenv
 }
 
 # Call functions in that order
 function main() {
-    echo "*** Collecting data from sesor BME280 ***"
+    echo "*** Collecting data from sensor BME280 ***"
     installVirtualenv
     createEnv
     activateEnv
