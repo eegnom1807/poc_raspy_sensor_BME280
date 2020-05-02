@@ -45,6 +45,7 @@ def sensorData():
         # Interval
         time.sleep(int(config['API']['interval']))
 
+        
 # Main call
 if __name__ == '__main__':
     global config
