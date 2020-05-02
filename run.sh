@@ -52,7 +52,7 @@ function installVirtualenv() {
 
 # Call functions in that order
 function main() {
-    echo "*** Collecting data from sensor BME280 ***"
+    echo "*** Installing requirements ***"
     installVirtualenv
     createEnv
     activateEnv
