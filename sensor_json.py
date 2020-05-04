@@ -32,10 +32,12 @@ def getData():
             message['hum'] = lines[1].split("h")[1].split("b")[0]
             message['pres'] = lines[1].split("h")[1].split("b")[1]
 
-        return make_response(jsonify(message), 200)
+            return make_response(jsonify(message), 200)
+        else:
+            return make_response(jsonify(message), 404)
     except Exception as e:
-        message = {'message': 'Not found', 'exception': str(e)}
-        return make_response(jsonify(message), 404)
+        message = {'error': str(e)}
+        return make_response(jsonify(message), 400)
 
         
 # Main call
